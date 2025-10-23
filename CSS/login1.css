@@ -1,0 +1,272 @@
+/* --- Style cơ bản của bạn (Giữ nguyên) --- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    line-height: 1.7rem; /* Sửa lại 1 chút */
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f6f5f7; /* Thêm màu nền cho đẹp */
+}
+/* --- Style cho Form (Lấy từ .flogin, input của bạn) --- */
+h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+form {
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 50px;
+    height: 100%;
+    text-align: center;
+}
+
+input {
+    height: 50px;
+    width: 100%; /* Thêm width */
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    border: none;
+    background-color: rgb(218, 222, 225);
+}
+input:focus {
+    outline: none;
+    box-shadow: 0 0 5px #c21f0d;
+}
+
+button, input[type="submit"], input[type="button"] {
+    background-color: #de412f; /* Màu đỏ */
+    color: white;
+    cursor: pointer;
+    font-size: 14px; 
+    font-weight: bold;
+    border: none;
+    border-radius: 20px; 
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+    margin-top: 10px;
+}
+button:active {
+    transform: scale(0.95);
+}
+
+/* Nút "ma" trên overlay (Lấy style .dky của bạn) */
+button.ghost {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+}
+button.ghost:hover {
+    background-color: white;
+    color: #c21f0d;
+    transition: 0.3s;
+}
+
+img {
+    width: 150px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+}
+
+a {
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 15px 0;
+}
+
+/* --- PHẦN CSS QUAN TRỌNG CHO HIỆU ỨNG --- */
+
+/* Container chính (Lấy box-shadow của bạn) */
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 5px 10px 18px #871a1a, -5px -5px 18px #ccc;
+    position: relative;
+    overflow: hidden; /* Ẩn các phần trượt ra ngoài */
+    width: 70%;
+    max-width: 100%;
+    min-height: 680px; /* Tăng chiều cao 1 chút */
+}
+
+/* Class chung cho 2 form */
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+}
+
+/* Form Đăng nhập (nằm bên TRÁI) */
+.sign-in-container {
+    left: 0;
+    width: 50%;
+    z-index: 2; /* Nằm trên */
+}
+
+/* Form Đăng ký (nằm bên TRÁI, bị ẩn) */
+.sign-up-container {
+    left: 0;
+    width: 50%;
+    opacity: 0; /* Ẩn đi */
+    z-index: 1; /* Nằm dưới */
+}
+
+/* Tấm Overlay (nằm bên PHẢI) */
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    
+    /* THÊM VÀO: Bo góc bên TRÁI (giá trị 200px của bạn) */
+    border-top-left-radius: 200px;
+    border-bottom-left-radius: 200px;
+    
+    /* THÊM VÀO: Báo cho CSS biết "hãy trượt cả border-radius" */
+    transition: transform 0.6s ease-in-out, border-radius 0.6s ease-in-out;
+    
+    z-index: 100; 
+}
+
+/* Lớp màu (Lấy màu gradient của bạn) */
+.overlay {
+    /* DÙNG MÀU CỦA BẠN */
+    background: linear-gradient(135deg, #c21f0d 0%, #9d480c 100%);
+    color: #FFFFFF;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%; /* Rộng gấp đôi để trượt */
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+/* Các tấm panel chữ */
+.overlay-panel {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+    height: 100%;
+    width: 50%;
+    text-align: center;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.overlay-left {
+    transform: translateX(-20%); /* Ẩn panel này đi 1 chút */
+}
+
+.overlay-right {
+    right: 0;
+    transform: translateX(0); /* Hiện panel này */
+}
+
+
+/* --- CSS KÍCH HOẠT HIỆU ỨNG (KHI JS THÊM CLASS "panel-active") --- */
+
+/* 1. Trượt Tấm Overlay sang TRÁI */
+.container.panel-active .overlay-container {
+    transform: translateX(-100%);
+    
+    /* THÊM VÀO: Đảo góc bo (bỏ góc trái, thêm góc phải) */
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 200px;
+    border-bottom-right-radius: 200px;
+}
+
+/* 2. Hiện Form Đăng Ký (trượt từ phải qua) */
+.container.panel-active .sign-up-container {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+}
+
+/* 3. Ẩn Form Đăng Nhập */
+.container.panel-active .sign-in-container {
+    transform: translateX(100%);
+}
+
+/* 4. Trượt lớp màu bên trong overlay */
+.container.panel-active .overlay {
+    transform: translateX(50%);
+}
+
+/* 5. Đổi 2 tấm panel chữ */
+.container.panel-active .overlay-left {
+    transform: translateX(0);
+}
+.container.panel-active .overlay-right {
+    transform: translateX(20%);
+}
+/* --- CSS CHO HIỆU ỨNG TRƯỢT DỌC (THÊM MỚI) --- */
+
+/* Biến .sign-in-container thành 1 cái hộp 
+  để chứa 2 form trượt bên trong
+*/
+.sign-in-container {
+    overflow: hidden; /* Ẩn form QMK bị đẩy xuống dưới */
+}
+
+/* Style cho form QMK (fforgot) 
+  Nó nằm đè lên form Đăng nhập, nhưng bị đẩy xuống dưới 100%
+*/
+.fforgot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    /* Bị đẩy xuống dưới */
+    transform: translateY(100%); 
+    /* Thêm hiệu ứng trượt */
+    transition: transform 0.6s ease-in-out;
+}
+
+/* Style cho form Đăng nhập (flogin)
+  Chúng ta cũng thêm transition cho nó
+*/
+.flogin {
+    position: absolute; /* Thêm vào */
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transition: transform 0.6s ease-in-out;
+}
+
+/* KHI TRẠNG THÁI "QUÊN MẬT KHẨU" ĐƯỢC KÍCH HOẠT
+  (Khi container có class "show-forgot")
+*/
+
+/* 1. Đẩy form Đăng nhập (flogin) trượt LÊN TRÊN */
+.container.show-forgot .flogin {
+    transform: translateY(-100%);
+}
+
+/* 2. Kéo form QMK (fforgot) trượt TỪ DƯỚI LÊN */
+.container.show-forgot .fforgot {
+    transform: translateY(0);
+}

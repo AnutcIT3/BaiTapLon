@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập & Đăng Ký</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/CSS/login1.css">
+</head>
+<body>
+     <div class="container" id="container">
+
+        <div class="form-container sign-up-container">
+            <form onsubmit="return validateSignup()" class="fdky">
+                <a href="/index.html"><img src="/anh/logo.jpg" alt="Logo"></a>
+                <h2>Đăng Ký</h2>
+                <input type="text" name="tdn" id="txttdk" placeholder="Tên Đăng Nhập">
+                <input type="password" name="mk" id="txtmk1" placeholder="Mật Khẩu">
+                <input type="password" name="nlmk" id="txtnlmk" placeholder="Nhập Lại Mật Khẩu">
+                <input type="email" name="email" id="txtemail1" placeholder="Email">
+                <input type="text" name="sdt" id="txtsdt" placeholder="Số Điện Thoại">
+                <button type="submit">Đăng Ký</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">  
+            <form class="flogin" onsubmit="return validateLogin()">
+                <a href="/index.html"><img src="/anh/logo.jpg" alt="Logo"></a>
+                <h2>Đăng Nhập</h2>
+                <input type="text" name="tdn" id="txttdn" placeholder="Tên Đăng Nhập">
+                <input type="password" name="mk" id="txtmk" placeholder="Mật Khẩu">
+                <a href="#" id="forgot-pass-link">Quên mật khẩu?</a>
+                <button type="submit">Đăng Nhập</button>
+            </form>
+            <form class="fforgot" onsubmit="return validateForgot()">
+                <a href="/index.html"><img src="/anh/logo.jpg" alt="Logo"></a>
+                <h2>Quên Mật Khẩu</h2>
+                <input type="email" name="email" id="forgot-email" placeholder="Email">
+                <input type="button" value="Gửi Mã" onclick="sendcode()">
+                <input type="text" name="code" id="forgot-code" placeholder="Mã Xác Thực (6 số)">
+                <input type="submit" value="Xác Thực">
+                
+                <a href="#" id="back-to-login-link">Quay lại Đăng nhập</a>
+            </form>
+        </div>
+
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h2>Chào Mừng Trở Lại!</h2>
+                    <p>Bạn đã có tài khoản?</p>
+                    <button class="ghost" id="signIn">Đăng Nhập</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h2>Chào Bạn!</h2>
+                    <p>Bạn chưa có tài khoản? Hãy đăng ký</p>
+                    <button class="ghost" id="signUp">Đăng Ký</button>
+                </div>
+            </div>
+        </div>
+
+     </div>
+
+     <script src="/JS/login1.js"></script>
+</body>
+</html>

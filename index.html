@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="/CSS/website.css"> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <title>Quan li ban sach</title>
+    </head>
+    <body>
+        <header>
+            
+            <div class="logo">
+                <ul>
+                     <li><a href="#" onclick="showPage('home')"><img src="/anh/logo.jpg" alt="logo" style="border-radius: 50%;"></a></li>   
+     <li><h1>Hiệu Sách Tri Thức</h1></li>
+ </ul>
+ <div class="buttons" id="auth-buttons">
+<a href="/HTML/login1.html"><button>Đăng nhập</button></a><a href="/HTML/login1.html"><button>Đăng ký</button></a>
+
+ </div>
+ <div class="user-menu" id="user-menu" style="display: none;">  
+     <i class="fas fa-user-circle" id="user-icon"></i>
+     <div class="dropdown-content" id="user-dropdown">
+                    <div class="dropdown-header">Xin chào, <span id="username-display"></span></div>                    
+                    <a href="#" onclick="showPage('profile')">
+                         <i class="fas fa-user-edit"></i> Thông tin cá nhân
+</a>
+<a href="#" onclick="showPage('history')">   
+     <i class="fas fa-history"></i> Lịch sử đơn hàng
+</a>
+<a href="#" id="logout-btn">
+     <i class="fas fa-sign-out-alt"></i> Đăng Xuất
+</a>
+</div>
+ </div>
+</div>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="showPage('home')">Trang Chủ</a></li>
+                    <li><a href="/HTML/flashsale.html">Flash Sale</a></li>
+                    <li><a href="/HTML/manga.html">Manga</a></li>
+                    <li><a href="/HTML/tieuthuyet.html">Tiểu Thuyết</a></li>
+                    <li><a href="/HTML/sachgiaokhoa.html">Sách Học Tập</a></li>
+                    <li><a href="/HTML/sachnuocngoai.html">Sách Nước Ngoài</a></li>
+                    <li><a>Sản Phẩm Khác</a></li>
+                    <li class="no"></li class="no"><li class="no"></li class="no"><li class="no"></li class="no"><li class="no"></li class="no"><li class="no"></li><li class="no"></li><li class="no"></li><li class="no"></li>
+                    <li><a href="#" onclick="showPage('cart')" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cart-count">0</span>
+                    </a></li>
+                </ul>
+            </nav>
+            <div class="main-slider-container">
+                <div id="hero-slider" class="slider">
+                    <div class="slide active-slide slide-1">
+                        <h1 class="slider-title">LỄ HỘI SÁCH MÙA THU</h1>
+                        <p>Giảm giá lớn nhất trong năm!</p>
+                    </div>
+                    <div class="slide slide-2">
+                        <h1 class="slider-title">SÁCH MỚI CẬP NHẬT</h1>
+                        <p>Khám phá ngay hàng ngàn tựa sách mới.</p>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <span class="slider-dot active-dot" data-slide="0"></span>
+                    <span class="slider-dot" data-slide="1"></span>
+                </div>
+            </div>
+        </header>
+        
+        <main>
+            <div id="home-content" class="page"> 
+                <h1 class="tieude">Sách Bán Chạy</h1>
+                <section>
+                    <article data-id="book-conan">
+                        <a href="#" onclick="showBookDetail('book-conan', event)"><img src="/anh/conan.jpg" alt=""></a>
+                        <h3>Thám tử lừng danh Conan - Tập 106</h3>
+                         
+                            <p>25.000 đ</p>
+                            <button onclick="addToCart('book-conan')">Mua</button>
+    
+                    </article>
+
+                    <article data-id="book-jjk">
+                        <a href="#" onclick="showBookDetail('book-jjk', event)"><img src="/anh/jjk.jpg" alt=""></a>
+                        <h3>Chú thuật hồi chiến -Tập 25</h3>
+                        <p class="price-text">25.000 đ</p>
+                        <button onclick="addToCart('book-jjk')">Mua</button>
+                    </article>
+
+                    <article data-id="book-muado">
+                        <a href="#" onclick="showBookDetail('book-muado', event)"><img src="/anh/muado.jpg" alt=""></a>
+                        <h3>Mưa Đỏ</h3>
+                        <p class="price-text">60.000 đ</p>
+                        <button onclick="addToCart('book-muado')">Mua</button>
+                    </article>
+                    <article data-id="book-hodiep">
+                        <a href="#" onclick="showBookDetail('book-hodiep', event)"><img src="/anh/hodiep.jpg" alt=""></a>
+                        <h3>Hồ điệp và kình ngư</h3>
+                        <p class="price-text">100.000 đ</p>
+                        <button onclick="addToCart('book-hodiep')">Mua</button>
+                    </article>
+                    <article data-id="book-kny">
+                        <a href="#" onclick="showBookDetail('book-kny', event)"><img src="/anh/kny.webp" alt=""></a>
+                        <h3>Thanh gươm diệt quỷ - Tập 13</h3>
+                        <p class="price-text">30.000 đ</p>
+                        <button onclick="addToCart('book-kny')">Mua</button>
+                    </article>
+                </section>
+                
+                <h1 class="tieude">Sách mới cập nhật</h1>
+                <section>
+                    <article data-id="book-sakamoto">
+                      <a href="#" onclick="showBookDetail('book-sakamoto', event)"><img src="/anh/sakamoto.webp" alt=""></a>
+                      <h3>Sakamoto Days -Tập 23</h3>
+                      <p class="price-text">146.000 đ</p>
+                      <button onclick="addToCart('book-sakamoto')">Mua</button>
+                    </article>
+                    <article data-id="book-quayroi">
+                      <a href="#" onclick="showBookDetail('book-quayroi', event)"><img src="/anh/qu_y-r_i-6.jpg" alt=""></a>
+                      <h3>Quấy Rối Tinh Thần - Bạo Lực Đồi Bại Trong Cuộc Sống Hằng Ngày</h3>
+                      <p class="price-text">122.000 đ</p>
+                      <button onclick="addToCart('book-quayroi')">Mua</button>
+                    </article>
+                    <article data-id="book-nhat">
+                        <a href="#" onclick="showBookDetail('book-nhat', event)"><img src="/anh/Nhat.jpg" alt=""></a>
+                        <h3>Tự học tiếng Nhật dành cho người mới bắt đầu</h3>
+                        <p class="price-text">85.000 đ</p>
+                        <button onclick="addToCart('book-nhat')">Mua</button>
+                    </article>
+                    <article data-id="book-nuoicon">
+                        <a href="#" onclick="showBookDetail('book-nuoicon', event)"><img src="/anh/nuoicon.jpg" alt=""></a>
+                        <h3>nuôi con không phải là cuộc chiến 2</h3>
+                        <p class="price-text">60.000 đ</p>
+                        <button onclick="addToCart('book-nuoicon')">Mua</button>
+                    </article>
+                    <article data-id="book-toan">
+                        <a href="#" onclick="showBookDetail('book-toan', event)"><img src="/anh/z7121690948394_6a966ef003701d3ac710eba75b90d6f0.jpg" alt=""></a>
+                        <h3>Tuyển chọn 400 bài tập trắc nhiệm toán </h3>
+                        <p class="price-text">50.000 đ</p>
+                        <button onclick="addToCart('book-toan')">Mua</button>
+                    </article>
+                </section>
+            </div>
+            
+            <section id="cart-page" class="page" style="display:none;">
+                <div class="container">
+                    <h2>🛒 Giỏ Hàng Của Bạn</h2>
+                    <table>
+                        <thead>
+                            <tr><th>Tên Sách</th><th>Giá</th><th>Số Lượng</th><th>Thành Tiền</th><th>Xóa</th></tr>
+                        </thead>
+                        <tbody id="cart-items-body">
+                        </tbody>
+                    </table>
+
+                    <div class="coupon-row">
+                        <input type="text" id="coupon-code" placeholder="Nhập mã giảm giá">
+                        <button id="apply-coupon-btn">Áp dụng</button>
+                    </div>
+                    <div id="coupon-feedback"></div>
+
+            
+                    <div class="cart-summary">
+                        <h3>Tổng Cộng: <span id="cart-total">0 VNĐ</span></h3>
+                        <button id="checkout-btn">Tiến Hành Thanh Toán</button>
+                    </div>
+                    <section id="checkout-form-section" style="display:none;" class="form-section">
+                        <h2>Thông Tin Thanh Toán</h2>
+                        <div id="customer-info-form">
+                            <label for="cust-name">Họ và Tên:</label>
+                            <input type="text" id="cust-name" required>
+                            
+                            <label for="cust-phone">Số Điện Thoại:</label>
+                            <input type="tel" id="cust-phone" required>
+                            
+                            <label for="cust-address">Địa Chỉ:</label>
+                            <textarea id="cust-address" rows="3" required></textarea>
+                        </div>
+                    <div class="payment-options">
+                            <h3>Hình Thức Thanh Toán</h3>
+                            <div>
+                                <input type="radio" id="payment-cod" name="payment" value="cod" checked>
+                                <label for="payment-cod">Thanh toán khi nhận hàng (COD)</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="payment-qr" name="payment" value="qr">
+                                <label for="payment-qr">Thanh toán qua QR Code</label>
+                            </div>
+                        </div>
+                        
+                        <button id="order-btn" class="form-section-button">Đặt Hàng</button>
+                    </section>
+                </div>
+                <div id="qr-popup" class="hidden">
+                    <div class="popup-content">
+                        <h4>Quét mã QR để thanh toán</h4>
+                        <p>Tổng tiền: <span id="qr-total">0</span> đ</p>
+                        
+                        <img src="/anh/qr.jpg" alt="Mã QR thanh toán" width="200">
+                        
+                        <button id="confirm-qr-payment-btn">Tôi đã thanh toán</button>
+                        <button id="close-popup-btn">Hủy</button>
+                    </div>
+                </div>
+
+            
+                    <!-- <section id="checkout-form-section" style="display:none;" class="form-section"> -->
+                        <!-- <h2>Thông Tin Thanh Toán</h2> -->
+                        <!-- <form id="checkout-form"> -->
+                            <!-- <input type="text" placeholder="Họ tên" required> -->
+                            <!-- <input type="text" placeholder="Địa chỉ giao hàng" required> -->
+                            <!-- <input type="tel" placeholder="Số điện thoại" required> -->
+                            <!-- <select required> -->
+                                <!-- <option>Thanh toán khi nhận hàng (COD)</option> -->
+                                <!-- <option>Chuyển khoản Ngân hàng (Giả lập)</option> -->
+                            <!-- </select> -->
+                            <!-- <button type="submit">Hoàn Tất Đặt Hàng</button> -->
+                        <!-- </form> -->
+                    <!-- </section> -->
+                </div>
+            </section>
+            <section id="profile-page" class="page" style="display:none;">
+                <div class="container">
+                    <h2>Thông tin cá nhân</h2>
+                    <div class="profile-info">
+                        <p><strong>Tên tài khoản:</strong> <span id="profile-username"></span></p>
+                        <p><strong>Email:</strong> <span id="profile-email"></span></p>
+                        <p><strong>Địa chỉ:</strong> (Chưa cập nhật)</p>
+                        <p><strong>Số điện thoại:</strong> (Chưa cập nhật)</p>
+                    </div>
+                </div>
+            </section>
+
+                        <section id="history-page" class="page" style="display:none;">
+                <div class="container">
+                    <h2>Lịch sử đơn hàng</h2>
+                    <div id="order-history-list"></div>
+                </div>
+            </section>
+            <!-- === TRANG ADMIN === -->
+            <section id="admin-page" class="page" style="display:none;">
+                <div class="container">
+                    <h2>Trang Quản Trị Viên</h2>
+                    
+                    <!-- Thống kê doanh thu -->
+                    <div class="admin-section">
+                        <h3>Thống kê Doanh thu</h3>
+                        <div class="stats-container">
+                            <div class="stat-card">
+                                <h4>Hôm Nay</h4>
+                                <p id="revenue-today">0 VNĐ</p>
+                            </div>
+                            <div class="stat-card">
+                                <h4>Tháng Này</h4>
+                                <p id="revenue-month">0 VNĐ</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tạo mã giảm giá -->
+                    <div class="admin-section">
+                        <h3>Tạo Mã Giảm Giá</h3>
+                        <form id="create-coupon-form" class="form-section">
+                            <input type="text" id="new-coupon-code" placeholder="Nhập mã (ví dụ: SALE10)" required>
+                            <input type="number" id="new-coupon-amount" placeholder="Số tiền giảm (VNĐ)">
+                            <input type="number" id="new-coupon-percent" placeholder="Hoặc phần trăm giảm (%)" min="0" max="100">
+                            <button type="submit">Tạo Mã</button>
+                        </form>
+                    </div>
+
+                    <!-- Danh sách mã giảm giá -->
+                    <div class="admin-section">
+                        <h3>Danh Sách Mã Hiện Có</h3>
+                        <div id="coupons-list">
+                            <!-- JS sẽ điền vào đây -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <ul>
+                <li><h3>Hỗ trợ</h3></li>
+                <li><a href="">Chính sách đổi-trả-hoàn tiền</a></li>
+                <li><a href="/HTML/fooder/chinhsachbaohanh.html">Chính sách bảo hành-bồi hoàn</a></li>
+                <li><a href="">Chính sách vận chuyển</a></li>
+                <li><a href="">Chính sách khách sỉ</a></li>
+
+            </ul>
+            <ul>
+                <li><h3>Dịch vụ</h3></li>
+                <li><a href="/HTML/fooder/dieukhoan.html">Điều khoản phục vụ</a></li>
+                <li><a href="/HTML/fooder/chinhsachbaomatthanhtoa.html">Chính sách bảo mật thanh toán</a></li>
+                <li><a href="/HTML/fooder/chinhsachbaomatthongtin.html">Chính sách thông tin cá nhân</a></li>
+            </ul>
+            <ul>
+                <li><h3>Tài khỏa của tôi</h3></li>
+                <li><a href="/HTML/login.html">Đăng nhập/tạo tài khoản</a></li>
+                <li><a href="">Thay đổi địa chỉ khách hàng</a></li>
+                <li><a href="">Lịch mua hàng</a></li>
+            </ul>
+            </footer>
+             <div id="book-detail-modal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <div class="book-details-content">
+                    <img id="modal-book-img" src="" alt="Ảnh Sách">
+                    <div class="book-info">
+                        <h2 id="modal-book-title"></h2>
+                        <p><strong>Giá:</strong> <span id="modal-book-price"></span></p>
+                        <p><strong>Tác giả:</strong> <span id="modal-book-author"></span></p>
+                        <p><strong>Mô tả:</strong> <span id="modal-book-description"></span></p>
+                        <button id="modal-add-to-cart-btn" class="add-to-cart-modal-btn" data-book-id="">Thêm vào Giỏ Hàng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+           <script src="/JS/JS.js"></script> 
+    </body>
+</html>

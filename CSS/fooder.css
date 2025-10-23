@@ -1,0 +1,78 @@
+body{
+    background-color: aliceblue;
+}
+header .logo{
+    background-image: linear-gradient(rgb(253, 75, 75),pink,white);
+    width: 100%;
+    margin: 0 0;
+    padding: 0 0;
+    display: flex;
+}
+header .logo ul{
+    display: flex;
+    list-style: none;
+
+}
+header .logo ul li img{
+    width: 80px;
+    height: auto;
+
+}
+header .logo ul li h1 {
+  font-family: sans-serif;
+  text-align: right;
+  margin-left: 100px;
+  color: rgb(241, 243, 231);
+  text-shadow: 2px 2px 4px rgba(77, 73, 73, 0.6); 
+}
+header .chi ul{
+    display: flex;
+    list-style: "/";
+}
+header .chi ul li{
+    padding: 0 20px;
+    font-family: sans-serif;
+}
+header .chi ul li a{
+    text-decoration: none;
+    color: black;
+}
+section{
+    background-color: white;
+    width: 80%; 
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+section article h2{
+    text-align: center;
+    padding-top: 20px;
+}
+footer{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: red;
+    color: white;
+}
+footer ul{
+    margin: 0 20px;
+    list-style: none;
+
+}
+footer ul li h3{
+    text-decoration: none;
+    color: black;  
+    font-family: sans-serif;
+}
+footer ul li a{
+    text-decoration: none;
+    padding: 10px 30px;
+    color: white;  
+    font-family: sans-serif;
+    font-size: large;
+}
+footer ul li a:hover{
+    color: rgb(204, 247, 30);
+    transform: matrix(1.05, 0, 0, 1.05, 5, 0);
+    transition: all 0.3s ease;
+}
